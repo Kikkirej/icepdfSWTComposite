@@ -11,5 +11,14 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: lib/icepdf/lib/icepdf-core.jar,
  lib/icepdf/lib/icepdf-viewer.jar,
- .
+ .,
+ lib/icepdf/lib/batik-awt-util.jar,
+ lib/icepdf/lib/batik-dom.jar,
+ lib/icepdf/lib/batik-svg-dom.jar,
+ lib/icepdf/lib/batik-svggen.jar,
+ lib/icepdf/lib/batik-util.jar,
+ lib/icepdf/lib/batik-xml.jar,
+ lib/icepdf/lib/bcpkix-jdk15on.jar,
+ lib/icepdf/lib/bcprov-ext-jdk15on.jar,
+ lib/icepdf/lib/bcprov-jdk15on.jar
 Export-Package: net.kikkirej.pdfview.rcp
