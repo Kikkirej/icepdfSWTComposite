@@ -23,6 +23,10 @@ public class PDFViewerProperties {
 		return props;
 	}
 	
+	public void setProperty(String key, String value){
+		props.setProperty(key, value);
+	}
+	
 	public void hideToolbar(Boolean hide){
 		setBoolean("application.viewerpreferences.hidetoolbar", hide);
 	}

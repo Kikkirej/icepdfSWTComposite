@@ -140,5 +140,9 @@ public class PDFViewer extends Composite implements PDFScrollable {
 		job.schedule();
 		return job;
 	}
+	
+	public void closeDocument(){
+		controller.closeDocument();
+	}
 }
 
