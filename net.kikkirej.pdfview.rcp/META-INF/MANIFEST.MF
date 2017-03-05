@@ -20,5 +20,8 @@ Bundle-ClassPath: lib/icepdf/lib/icepdf-core.jar,
  lib/icepdf/lib/batik-xml.jar,
  lib/icepdf/lib/bcpkix-jdk15on.jar,
  lib/icepdf/lib/bcprov-ext-jdk15on.jar,
- lib/icepdf/lib/bcprov-jdk15on.jar
+ lib/icepdf/lib/bcprov-jdk15on.jar,
+ lib/jai_image_io_tools/clibwrapper_jiio.jar,
+ lib/jai_image_io_tools/jai_imageio.jar,
+ lib/levigo_jbig2/levigo-jbig2-imageio-1.6.5.jar
 Export-Package: net.kikkirej.pdfview.rcp

@@ -2,7 +2,7 @@ package net.kikkirej.pdfview.rcp;
 
 import java.util.Properties;
 
-import org.icepdf.ri.util.PropertiesManager;
+import static org.icepdf.ri.util.PropertiesManager.*;
 
 public class PDFViewerProperties {
 
@@ -43,8 +43,12 @@ public class PDFViewerProperties {
 		setBoolean("application.toolbar.show.utility.open", value);
 	}
 	
+	public void showSave(Boolean value){
+		setBoolean(PROPERTY_SHOW_UTILITY_SAVE, value);
+	}
+	
 	public void showAnnotationOptions(Boolean showAnnotation){
-		setBoolean(PropertiesManager.PROPERTY_SHOW_TOOLBAR_ANNOTATION, showAnnotation);
+		setBoolean(PROPERTY_SHOW_TOOLBAR_ANNOTATION, showAnnotation);
 		setBoolean("application.utilitypane.show.annotation", showAnnotation);
 	}
 	
@@ -54,6 +58,9 @@ public class PDFViewerProperties {
 	
 	public void showUtilityPane(Boolean value){
 		setBoolean("application.toolbar.show.utility.upane", value);
+		if(value.equals(false)){
+			showSearch(false); //Weil sich sonst 
+		}
 	}
 	
 	public void showUtility(Boolean value){
@@ -66,6 +73,14 @@ public class PDFViewerProperties {
 	
 	public void showBookmarks(Boolean value){
 		setBoolean("application.utilitypane.show.bookmarks", value);
+	}
+	
+	public void showKeyboardShortcuts(Boolean value){
+		setBoolean("application.menuitem.show.keyboard.shortcuts", value);
+	}
+	
+	public void showForms(Boolean value){
+		setBoolean(PROPERTY_SHOW_TOOLBAR_FORMS, value);
 	}
 	
 	private void setBoolean(String key, Boolean value) {

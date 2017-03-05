@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/levigo_jbig2/levigo-jbig2-imageio-1.6.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jai_image_io_tools/clibwrapper_jiio.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jai_image_io_tools/jai_imageio.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/icepdf/lib/batik-awt-util.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/icepdf/lib/batik-dom.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/icepdf/lib/batik-svg-dom.jar"/>
