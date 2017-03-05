@@ -3,7 +3,6 @@ package net.kikkirej.pdfview.rcp;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import org.eclipse.swt.dnd.DropTargetEvent;
 import org.icepdf.ri.common.SwingController;
 
 public class PDFController {

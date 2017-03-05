@@ -1,17 +1,12 @@
 package net.kikkirej.pdfview.rcp;
 
 import java.awt.Frame;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
 import javax.swing.JPanel;
 
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
