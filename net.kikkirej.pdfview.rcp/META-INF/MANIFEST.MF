@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PDFView
+Bundle-SymbolicName: net.kikkirej.pdfview.rcp
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.kikkirej.pdfview.rcp.Activator
+Bundle-Vendor: Kikkirej.net
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/icepdf/lib/icepdf-core.jar,
+ lib/icepdf/lib/icepdf-viewer.jar,
+ .
+Export-Package: net.kikkirej.pdfview.rcp
