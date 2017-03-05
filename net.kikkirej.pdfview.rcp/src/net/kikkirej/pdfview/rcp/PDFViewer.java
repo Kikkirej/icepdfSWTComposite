@@ -1,6 +1,9 @@
 package net.kikkirej.pdfview.rcp;
 
 import java.awt.Frame;
+import java.io.File;
+import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -109,15 +112,15 @@ public class PDFViewer extends Composite implements PDFScrollable {
 		return seiten;
 	}
 
-	public void openDocument(URL docUrl){
+	public Job openDocument(URL docUrl){
 		PDFOpenURLJob openJob = new PDFOpenURLJob(controller, initialized, docUrl);
 		openJob.schedule();
 		initialized = true;
+		return openJob;
 	}
 	
 	
 	/**
-	 * Öffnet eine Byte-Array
 	 * @param file Das Byte-Array. welches geöffnet werden soll.
 	 * @param pathOrUrl 
 	 * @return
@@ -125,7 +128,22 @@ public class PDFViewer extends Composite implements PDFScrollable {
 	public Job openDocument(byte[] file, String pathOrUrl) {
 		Job job = new PDFOpenByteArrayJob(controller, file, pathOrUrl);
 		job.schedule();
+		initialized = true;
 		return job;
+	}
+	
+	public Job openDocument(File file) throws MalformedURLException{
+		URL url = file.toURI().toURL();
+		return openDocument(url);
+	}
+	
+	public Job openDocument(String filePath) throws MalformedURLException{
+		return openDocument(new File(filePath));
+	}
+	
+	@Deprecated
+	public void openDocument(InputStream n){
+		//TODO irgendwann nen Job hierfür machen...
 	}
 	
 	public void closeDocument(){
