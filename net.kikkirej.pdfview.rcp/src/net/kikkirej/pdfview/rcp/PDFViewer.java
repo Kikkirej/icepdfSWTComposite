@@ -144,5 +144,9 @@ public class PDFViewer extends Composite implements PDFScrollable {
 	public void closeDocument(){
 		controller.closeDocument();
 	}
+	
+	public PDFController getController(){
+		return new PDFController(controller);
+	}
 }
 
