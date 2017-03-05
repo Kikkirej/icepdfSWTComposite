@@ -8,12 +8,12 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.icepdf.ri.common.SwingController;
 
-class PDFOpenJob extends Job {
+class PDFOpenURLJob extends Job {
 
 	private SwingController controller;
 	private URL url;
 
-	public PDFOpenJob(SwingController controller, Boolean init, URL url) {
+	public PDFOpenURLJob(SwingController controller, Boolean init, URL url) {
 		super("Datei öffnen");
 		this.controller = controller;
 		this.url = url;

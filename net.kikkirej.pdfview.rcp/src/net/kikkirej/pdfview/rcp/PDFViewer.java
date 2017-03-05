@@ -1,6 +1,8 @@
 package net.kikkirej.pdfview.rcp;
 
 import java.awt.Frame;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -39,6 +41,11 @@ public class PDFViewer extends Composite implements PDFScrollable {
 	public PDFViewer(Composite parent, int style, PDFViewerProperties pDFViewerProps) {
 		super(parent, SWT.EMBEDDED);
 
+		init(pDFViewerProps);
+
+	}
+
+	private void init(PDFViewerProperties pDFViewerProps) {
 		currentPage = 1; 
 		useCurrentPage = true; 
 		useCurrentDestination = false; 
@@ -61,7 +68,6 @@ public class PDFViewer extends Composite implements PDFScrollable {
 		frame.setVisible(true); // add copy keyboard command 
 		ComponentKeyBinding.install(controller, viewerComponentPanel);
 		setVisible(true);
-
 	}
 
 	@Override
@@ -109,7 +115,7 @@ public class PDFViewer extends Composite implements PDFScrollable {
 	}
 
 	public void openDocument(URL docUrl){
-		PDFOpenJob openJob = new PDFOpenJob(controller, initialized, docUrl);
+		PDFOpenURLJob openJob = new PDFOpenURLJob(controller, initialized, docUrl);
 		openJob.schedule();
 		initialized = true;
 	}
@@ -122,21 +128,7 @@ public class PDFViewer extends Composite implements PDFScrollable {
 	 * @return
 	 */
 	public Job openDocument(byte[] file, String pathOrUrl) {
-		Job job = new Job("Datei öffnen") {
-			
-			@Override
-			protected IStatus run(IProgressMonitor monitor) {
-				try {
-				Document document = new Document();
-				document.setByteArray(file, 0, file.length, pathOrUrl);
-				controller.openDocument(document, pathOrUrl);
-				return Status.OK_STATUS;
-				} catch (Exception e) {
-					
-				}
-				return Status.CANCEL_STATUS;
-			}
-		};
+		Job job = new PDFOpenByteArrayJob(controller, file, pathOrUrl);
 		job.schedule();
 		return job;
 	}
@@ -148,5 +140,6 @@ public class PDFViewer extends Composite implements PDFScrollable {
 	public PDFController getController(){
 		return new PDFController(controller);
 	}
+	
 }
 

@@ -1,5 +1,8 @@
 package net.kikkirej.pdfview.rcp;
 
+import java.io.IOException;
+import java.io.OutputStream;
+
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.icepdf.ri.common.SwingController;
 
@@ -57,5 +60,13 @@ public class PDFController {
 	
 	public void searchPanel(){
 		controller.showSearchPanel();
+	}
+	
+	public void saveToStream(OutputStream stream) throws IOException{
+		controller.getDocument().saveToOutputStream(stream);
+	}
+	
+	public Boolean havePermissionToPrint(){
+		return controller.havePermissionToPrint();
 	}
 }
